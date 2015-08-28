@@ -17,4 +17,14 @@
     <string name="email_hint_label">email@example.com</string>
     <string name="signup_button_label">SignUp</string>
     <string name="login_text_listner">Already have an account, Log in</string>
+
+    <string name="logout_label">Logout</string>
+
+    <string name="signup_error_title">Oops!</string>
+    <string name="signup_error_message">Please make sure you enter a username,password and email address</string>
+
+    <string name="login_error_title">Oops!</string>
+    <string name="login_error_message">Please make sure you enter a username and password</string>
+    <string name="refresh">Refresh</string>
+
 </resources>

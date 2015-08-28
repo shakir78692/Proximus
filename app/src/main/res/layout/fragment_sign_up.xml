@@ -9,10 +9,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/usernameEditTextSignUp"
+        android:id="@+id/usernameEditTextSignup"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="@string/username_edit_hint" />
+        android:hint="@string/username_hint_label" />
 
     <EditText
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/emailEditTextSignup"
-        android:layout_below="@+id/usernameEditTextSignUp"
+        android:layout_below="@+id/usernameEditTextSignup"
         android:layout_centerHorizontal="true"
         android:hint="@string/email_hint_label" />
 
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/passwordEditTextSignUp"
+        android:id="@+id/passwordEditTextSignup"
         android:layout_below="@+id/emailEditTextSignup"
         android:layout_centerHorizontal="true"
         android:hint="@string/password_hint_label" />
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/signup_button_label"
-        android:id="@+id/SignUpButton"
+        android:id="@+id/signupButton"
         android:layout_above="@+id/loginTextListner"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -49,6 +49,7 @@
         android:text="@string/login_text_listner"
         android:id="@+id/loginTextListner"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:padding="16dp" />
 
 </RelativeLayout>

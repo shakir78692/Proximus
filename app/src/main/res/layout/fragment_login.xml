@@ -39,5 +39,6 @@
         android:text="@string/signup_text_listner"
         android:id="@+id/signUpTextListner"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:padding="16dp" />
 </RelativeLayout>
