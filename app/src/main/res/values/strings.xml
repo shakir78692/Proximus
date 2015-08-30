@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Proximus</string>
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="chats_title_label">Chats</string>
+    <string name="friends_title_label">Friends</string>
+
 
     <string name="hello_world">Hello world!</string>
 
@@ -17,14 +17,40 @@
     <string name="email_hint_label">email@example.com</string>
     <string name="signup_button_label">SignUp</string>
     <string name="login_text_listner">Already have an account, Log in</string>
-
     <string name="logout_label">Logout</string>
 
     <string name="signup_error_title">Oops!</string>
     <string name="signup_error_message">Please make sure you enter a username,password and email address</string>
 
+
     <string name="login_error_title">Oops!</string>
     <string name="login_error_message">Please make sure you enter a username and password</string>
-    <string name="refresh">Refresh</string>
+
+
+    <string name="inbox_empty_label">No new messages!</string>
+    <string name="friends_empty_label">Add Friends to begin!</string>
+
+
+    <string name="title_activity_manage_friends">ManageFriendsActivity</string>
+    <string name="manage_friends_label">Manage Friends</string>
+
+
+    <string name="error_title">We\'re sorry!</string>
+    <string name="action_camera_label">Camera</string>
+
+    <string name="take_photo_label">Take Photo</string>
+    <string name="take_video_label">Take Video</string>
+    <string name="choose_photo_label">Choose Photo</string>
+    <string name="choose_video_label">Choose Video</string>
+
+    <string name="media_storage_error_label">There was a problem accessing your device\'s external storage.</string>
+    <string name="general_error">Sorry, there was an error!</string>
+    <string name="select_video_warning">Selected video must be less than 10 MB.</string>
+    <string name="file_picked_error">There was a problem with selected file.</string>
+    <string name="title_activity_recipients">RecipientsActivity</string>
+    <string name="recipients_empty_label">Add some friends first!</string>
+    <string name="select_video_error">File size too large!</string>
+    <string name="action_send">Send</string>
+    <string name="action_send_label">Send</string>
 
 </resources>
