@@ -1,8 +1,120 @@
+
 <resources>
+
+    <style name="Theme.Proximus" parent="@style/Theme.AppCompat.Light">
+        <item name="actionBarItemBackground">@drawable/selectable_background_proximus</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Proximus</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Proximus</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Proximus</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Proximus</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Proximus</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_proximus</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_proximus</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Proximus</item>
+        <item name="android:editTextBackground">@drawable/theme_edit_text_holo_light</item>
+        <item name="actionOverflowButtonStyle">@style/ActionBar.Solid.Proximus.actionOverflowButton</item>
+
+
+    </style>
+
+    <style name="ActionBar.Solid.Proximus" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@drawable/ab_solid_proximus</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_proximus</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_proximus</item>
+        <item name="progressBarStyle">@style/ProgressBar.Proximus</item>
+        <item name="titleTextStyle">@style/ActionBar.Solid.Proximus.TitletextStyle</item>
+    </style>
+
+    <style name="ActionBar.Solid.Proximus.actionOverflowButton" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_overflow</item>
+    </style>
+
+
+    <style name="ActionBar.Solid.Proximus.TitletextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+
+    <style name="ActionBar.Transparent.Proximus" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="background">@drawable/ab_transparent_proximus</item>
+        <item name="progressBarStyle">@style/ProgressBar.Proximus</item>
+    </style>
+
+    <style name="PopupMenu.Proximus" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_proximus</item>
+    </style>
+
+    <style name="DropDownListView.Proximus" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_proximus</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Proximus" parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_proximus</item>
+    </style>
+
+    <style name="DropDownNav.Proximus" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/spinner_background_ab_proximus</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_proximus</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_proximus</item>
+    </style>
+
+    <style name="ProgressBar.Proximus" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_proximus</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Proximus" parent="@style/Widget.AppCompat.Light.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_proximus</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Proximus.Widget" parent="@style/Theme.AppCompat">
+        <item name="popupMenuStyle">@style/PopupMenu.Proximus</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Proximus</item>
+    </style>
+
+<!--_____________________________________________________________________________________________-->
+
+
+
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="AuthTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:editTextBackground">@drawable/theme_edit_text_holo_light</item>
+    </style>
+
+    <style name="AuthBackGround">
+        <item name="android:background">@color/main_blue</item>
+    </style>
+
+    <style name="AuthButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@+id/loginItems</item>
+        <item name="android:background">@drawable/button_custom</item>
+        <item name="android:textColor">#2196F3</item>
+    </style>
+
+    <style name="AuthCommon">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">#fff</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="AuthEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">10</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
 
 </resources>

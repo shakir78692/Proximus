@@ -125,7 +125,13 @@ public class RecipientsActivityFragment extends ListFragment {
             ParseObject message = createMessage();
             if (message == null){
 
-                //error
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.general_error)
+                    .setMessage(R.string.file_selected_error)
+                    .setPositiveButton(android.R.string.ok, null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
             else {
                 send(message);
@@ -141,9 +147,19 @@ public class RecipientsActivityFragment extends ListFragment {
         message.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
+
                 if(e == null) {
 
-                    //show e.getMessage
+                    Log.i("SENT", "Message sent successfully!");
+
+                }else {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle(R.string.general_error)
+                            .setMessage(R.string.error_sending_try_again)
+                            .setPositiveButton(android.R.string.ok, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             }
         });

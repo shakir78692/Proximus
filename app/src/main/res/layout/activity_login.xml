@@ -3,42 +3,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="com.android.proximus.LoginActivity"
-                android:padding="16dp">
+                android:background="#2196F3"
+                android:padding="16dp"
+                style="@style/AuthBackGround">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/usernameEditTextLogin"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/username_hint_label" />
+    <include layout="@layout/title_layout"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordEditTextLogin"
-        android:layout_below="@+id/usernameEditTextLogin"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/password_hint_label" />
+    <LinearLayout
+        android:id="@+id/loginItems"
+        style="@style/AuthCommon">
+
+        <EditText
+            android:id="@+id/usernameEditTextLogin"
+            android:inputType="textPersonName"
+            android:hint="@string/username_hint_label"
+            style="@style/AuthEditText">
+            <requestFocus/>
+        </EditText>
+
+        <EditText
+            style="@style/AuthEditText"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/passwordEditTextLogin"
+            android:hint="@string/password_hint_label"
+            />
+
+    </LinearLayout>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/login_button_label"
         android:id="@+id/loginButton"
-        android:layout_above="@+id/signUpTextListner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        style="@style/AuthButton"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup_text_listner"
         android:id="@+id/signUpTextListner"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="false"
         android:layout_centerHorizontal="true"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:textColor="#FFFF00"
+        android:layout_below="@+id/loginButton"
+        android:layout_margin="16dp"/>
 
 </RelativeLayout>

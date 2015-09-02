@@ -32,6 +32,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return null;
     }
 
+
+
     @Override
     public int getCount() {
 
@@ -49,5 +51,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         }
         return null;
+    }
+
+    public int getIcon(int position){
+        switch (position){
+            case 0:
+                return R.drawable.ic_action_chat;
+            case 1:
+                return R.drawable.ic_action_group;
+        }
+
+        return R.drawable.ic_action_chat;
     }
 }

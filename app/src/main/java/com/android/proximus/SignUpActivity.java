@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -18,7 +17,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected EditText mUsername;
     protected EditText mPassword;
     protected EditText mEmail;
-    protected TextView mLogin;
+    protected Button mCancel;
     protected Button mSignUp;
 
     @Override
@@ -26,13 +25,14 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+
         mUsername = (EditText) findViewById(R.id.usernameEditTextSignup);
         mPassword = (EditText) findViewById(R.id.passwordEditTextSignup);
         mEmail = (EditText) findViewById(R.id.emailEditTextSignup);
         mSignUp = (Button) findViewById(R.id.signupButton);
-        mLogin = (TextView) findViewById(R.id.loginTextListner);
+        mCancel = (Button) findViewById(R.id.cancelButton);
 
-        mLogin.setOnClickListener(new View.OnClickListener() {
+        mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
