@@ -59,5 +59,6 @@
     <string name="app_name_title">Proximus</string>
     <string name="icon_image">icon image</string>
     <string name="cancel_label">Cancel</string>
+    <string name="user_image_view">user</string>
 
 </resources>

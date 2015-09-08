@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Proximus" parent="@style/Theme.AppCompat.Light">
+        <item name="actionBarItemBackground">@drawable/selectable_background_proximus</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Proximus</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Proximus</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Proximus</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Proximus</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Proximus</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_proximus</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_proximus
+        </item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Proximus
+        </item>
+        <item name="android:editTextBackground">@drawable/theme_edit_text_holo_light</item>
+        <item name="actionOverflowButtonStyle">
+            @style/ActionBar.Solid.Proximus.actionOverflowButton
+        </item>
+        <item name="android:listViewStyle">@style/Theme.Proximus.LightBlue</item>
+        <item name="android:gridViewStyle">@style/Theme.Proximus.LightBlue</item>
+        <item name="android:statusBarColor">@color/status_bar_blue</item>
+
+
+    </style>
+</resources>

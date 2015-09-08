@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +26,21 @@ public class InboxFragment extends ListFragment {
 
 
     protected List<ParseObject> mMessages;
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
+    protected SwipeRefreshLayout.OnRefreshListener mRefreshListner = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            retriveMessage();
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_inbox, container, false);
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout.setOnRefreshListener(mRefreshListner);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.main_blue, R.color.status_bar_blue);
 
         return rootView;
     }
@@ -38,12 +49,20 @@ public class InboxFragment extends ListFragment {
     public void onResume() {
         super.onResume();
 
+        retriveMessage();
+    }
+
+    private void retriveMessage() {
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(ParseConstants.CLASS_MEASSAGES);
         query.whereEqualTo(ParseConstants.KEY_RECIPIENT_IDS, ParseUser.getCurrentUser().getObjectId());
         query.orderByDescending(ParseConstants.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> messages, ParseException e) {
+
+                if (mSwipeRefreshLayout.isRefreshing()) {
+                    mSwipeRefreshLayout.setRefreshing(false);
+                }
 
                 if (e == null){
 
@@ -75,6 +94,7 @@ public class InboxFragment extends ListFragment {
                 }
             }
         });
+
     }
 
     @Override

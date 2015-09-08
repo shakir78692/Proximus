@@ -4,6 +4,7 @@
     <color name="main_blue">#2196F3</color>
     <color name="main_yellow">#FFFF00</color>
     <color name="grey">#9E9E9E</color>
-
+    <color name="light_blue">#BBDEFB</color>
+    <color name="status_bar_blue">#1976D2</color>
 
 </resources>

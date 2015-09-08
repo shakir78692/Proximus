@@ -1,11 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    style="@style/AuthBackGround"
+    xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.android.proximus.LoginActivity"
                 android:background="#2196F3"
                 android:padding="16dp"
-                style="@style/AuthBackGround">
+    tools:context="com.android.proximus.LoginActivity">
 
     <include layout="@layout/title_layout"/>
 
@@ -15,37 +16,38 @@
 
         <EditText
             android:id="@+id/usernameEditTextLogin"
-            android:inputType="textPersonName"
+            style="@style/AuthEditText"
             android:hint="@string/username_hint_label"
-            style="@style/AuthEditText">
+            android:inputType="textPersonName">
+
             <requestFocus/>
         </EditText>
 
         <EditText
-            style="@style/AuthEditText"
-            android:inputType="textPassword"
-            android:ems="10"
             android:id="@+id/passwordEditTextLogin"
+            style="@style/AuthEditText"
+            android:ems="10"
             android:hint="@string/password_hint_label"
+            android:inputType="textPassword"
             />
 
     </LinearLayout>
 
     <Button
-        android:text="@string/login_button_label"
         android:id="@+id/loginButton"
-        style="@style/AuthButton"/>
+        style="@style/AuthButton"
+        android:text="@string/login_button_label"/>
 
     <TextView
+        android:id="@+id/signUpTextListner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signup_text_listner"
-        android:id="@+id/signUpTextListner"
         android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:padding="16dp"
-        android:textColor="#FFFF00"
         android:layout_below="@+id/loginButton"
-        android:layout_margin="16dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="@string/signup_text_listner"
+        android:textColor="#FFFF00"/>
 
 </RelativeLayout>

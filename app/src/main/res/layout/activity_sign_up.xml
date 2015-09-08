@@ -1,62 +1,65 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    style="@style/AuthBackGround"
+    xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.android.proximus.SignUpActivity"
                 android:padding="16dp"
-                style="@style/AuthBackGround">
+    tools:context="com.android.proximus.SignUpActivity">
 
-    <include layout="@layout/title_layout"
-             android:layout_above="@+id/edittexts"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_centerHorizontal="true"/>
+    <include
+        layout="@layout/title_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittexts"
+        android:layout_centerHorizontal="true"/>
 
     <LinearLayout
         android:id="@+id/edittexts"
         style="@style/AuthCommon">
 
         <EditText
-            style="@style/AuthEditText"
             android:id="@+id/usernameEditTextSignup"
-            android:inputType="textPersonName"
-            android:hint="@string/username_hint_label">
+            style="@style/AuthEditText"
+            android:hint="@string/username_hint_label"
+            android:inputType="textPersonName">
+
             <requestFocus/>
         </EditText>
 
         <EditText
+            android:id="@+id/emailEditTextSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
             android:ems="30"
-            android:id="@+id/emailEditTextSignup"
-            android:hint="@string/email_hint_label" />
+            android:hint="@string/email_hint_label"
+            android:inputType="textEmailAddress"/>
 
         <EditText
-            style="@style/AuthEditText"
-            android:inputType="textPassword"
             android:id="@+id/passwordEditTextSignup"
-            android:hint="@string/password_hint_label" />
+            style="@style/AuthEditText"
+            android:hint="@string/password_hint_label"
+            android:inputType="textPassword"/>
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttons"
-        android:layout_below="@+id/edittexts">
+        android:layout_below="@+id/edittexts"
+        android:orientation="horizontal">
 
         <Button
-            android:text="@string/signup_button_label"
             android:id="@+id/signupButton"
             style="@style/AuthButton"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/signup_button_label"/>
 
         <Button
-            android:text="@string/cancel_label"
             android:id="@+id/cancelButton"
             style="@style/AuthButton"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/cancel_label"/>
     </LinearLayout>
 
 </RelativeLayout>

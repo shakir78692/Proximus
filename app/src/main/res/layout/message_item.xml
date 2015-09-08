@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/messageIcon"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/ic_action_picture"
-        android:adjustViewBounds="true"
-        android:paddingLeft="16dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"/>
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:id="@+id/senderLabel"
-        android:layout_alignParentTop="false"
-        android:layout_toRightOf="@+id/messageIcon"
-        android:layout_toEndOf="@+id/messageIcon"
-        android:paddingLeft="16dp"
-        android:textSize="18sp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"/>
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/messageIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_action_picture"/>
+
+        <TextView
+            android:id="@+id/senderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="8dp"
+            android:paddingTop="16dp"
+            android:text="ExampleName"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/timeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/senderLabel"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:text="10 mins ago"/>
+    </RelativeLayout>
+
+</LinearLayout>

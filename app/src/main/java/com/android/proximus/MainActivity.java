@@ -29,18 +29,14 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
 
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
-
     public static final int TAKE_PHOTO_REQUEST = 0;
     public static final int TAKE_VIDEO_REQUEST = 1;
     public static final int PICK_PHOTO_REQUEST = 2;
     public static final int PICK_VIDEO_REQUEST = 3;
-
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
-
     public static final int FILE_SIZE_LIMIT = 1024 * 1024 * 10;// 10 MB
-
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
     protected Uri mMediaUri;
 
     protected DialogInterface.OnClickListener mDialogListner = new DialogInterface.OnClickListener() {
@@ -89,6 +85,19 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             }
         }
     };
+    /**
+     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * fragments for each of the sections. We use a
+     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * loaded fragment in memory. If this becomes too memory intensive, it
+     * may be best to switch to a
+     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     */
+    SectionsPagerAdapter mSectionsPagerAdapter;
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    ViewPager mViewPager;
 
     private Uri getOutputMediaFileUri(int mediaType) {
 
@@ -213,29 +222,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     private boolean isExternalStorageAvailable(){
 
         String state = Environment.getExternalStorageState();
-        if (state.equals(Environment.MEDIA_MOUNTED)){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return state.equals(Environment.MEDIA_MOUNTED);
     }
-
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,7 +238,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             // show the signup or login screen
             navigateToLogin();
         }
-
 
 
         // Set up the action bar.
