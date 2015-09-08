@@ -1,6 +1,7 @@
 package com.android.proximus;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,8 @@ public class UserAdapter extends ArrayAdapter<ParseUser> {
 
             String hash = MD5Util.md5Hex(email);
             String url = "http://www.gravatar.com/avatar/" + hash + "?s=204&d=404";
+
+            Log.i("TEST", url);
 
             Picasso.with(mContext)
                     .load(url)
