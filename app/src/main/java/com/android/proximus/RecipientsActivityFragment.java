@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.proximus.util.FileHelper;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;

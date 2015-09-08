@@ -1,4 +1,4 @@
-package com.android.proximus;
+package com.android.proximus.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

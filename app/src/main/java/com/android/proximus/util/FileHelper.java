@@ -1,9 +1,11 @@
-package com.android.proximus;
+package com.android.proximus.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.Log;
+
+import com.android.proximus.ParseConstants;
 
 import org.apache.commons.io.IOUtils;
 

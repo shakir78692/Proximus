@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.proximus.util.MD5Util;
 import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
 
