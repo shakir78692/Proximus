@@ -1,0 +1,56 @@
+<RelativeLayout
+    style="@style/AuthBackGround"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2196F3"
+    android:padding="16dp"
+    tools:context="com.android.proximus.LoginActivity">
+
+    <include layout="@layout/title_layout"/>
+
+    <LinearLayout
+        android:id="@+id/loginItems"
+        style="@style/AuthCommon"
+        android:layout_width="400dp">
+
+        <EditText
+            android:id="@+id/usernameEditTextLogin"
+            style="@style/AuthEditText"
+            android:hint="@string/username_hint_label"
+            android:inputType="textPersonName">
+
+            <requestFocus/>
+        </EditText>
+
+        <EditText
+            android:id="@+id/passwordEditTextLogin"
+            style="@style/AuthEditText"
+            android:ems="10"
+            android:hint="@string/password_hint_label"
+            android:inputType="textPassword"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        style="@style/AuthButton"
+        android:text="@string/login_button_label"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/signUpTextListner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="@string/signup_text_listner"
+        android:textColor="#FFFF00"/>
+
+</RelativeLayout>
