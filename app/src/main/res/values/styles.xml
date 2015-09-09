@@ -91,6 +91,7 @@
 
     <style name="AuthTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:editTextBackground">@drawable/theme_edit_text_holo_light</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/status_bar_blue</item>
     </style>
 
     <style name="AuthBackGround">
