@@ -3,6 +3,7 @@ package com.android.proximus;
 import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +12,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.proximus.util.FileHelper;
 import com.parse.FindCallback;
@@ -30,7 +35,7 @@ import java.util.List;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class RecipientsActivityFragment extends ListFragment {
+public class RecipientsActivityFragment extends Fragment {
 
     private static final String LOG_TAG = RecipientsActivityFragment.class.getSimpleName();
 
@@ -40,6 +45,7 @@ public class RecipientsActivityFragment extends ListFragment {
     protected MenuItem mSendMenuItem;
     protected Uri mMediaUri;
     protected String mFileType;
+    protected GridView mGridView;
 
     public RecipientsActivityFragment() {
     }
@@ -56,12 +62,18 @@ public class RecipientsActivityFragment extends ListFragment {
                              Bundle savedInstanceState) {
 
 
-        View rootview = inflater.inflate(R.layout.fragment_recipients, container, false);
+        View rootView = inflater.inflate(R.layout.user_grid, container, false);
+
+        mGridView = (GridView) rootView.findViewById(R.id.friendsGrid);
+        mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
+        TextView textView = (TextView) rootView.findViewById(android.R.id.empty);
+        mGridView.setEmptyView(textView);
+        mGridView.setOnItemClickListener(mOnItemClickListner);
 
         mMediaUri = getActivity().getIntent().getData();
         mFileType = getActivity().getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
 
-        return rootview;
+        return rootView;
     }
 
     @Override
@@ -70,8 +82,6 @@ public class RecipientsActivityFragment extends ListFragment {
 
         mCurrentUser = ParseUser.getCurrentUser();
         mFriendsRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
-
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         ParseQuery<ParseUser> query = mFriendsRelation.getQuery();
         query.addAscendingOrder(ParseConstants.KEY_USERNAME);
@@ -89,14 +99,16 @@ public class RecipientsActivityFragment extends ListFragment {
                         i++;
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
-                            android.R.layout.simple_list_item_checked,
-                            userNames);
-                    setListAdapter(adapter);
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(getActivity(), mFriends);
+                        mGridView.setAdapter(adapter);
+                    } else {
+                        ((UserAdapter) mGridView.getAdapter()).refill(mFriends);
+                    }
 
                 } else {
                     Log.e(LOG_TAG, e.getMessage());
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getListView().getContext());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle(R.string.error_title)
                             .setMessage(e.getMessage())
                             .setPositiveButton(android.R.string.ok, null);
@@ -166,17 +178,6 @@ public class RecipientsActivityFragment extends ListFragment {
         });
     }
 
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        if (l.getCheckedItemCount() > 0) {
-            mSendMenuItem.setVisible(true);
-        }else {
-            mSendMenuItem.setVisible(false);
-        }
-    }
-
     protected ParseObject createMessage(){
 
         ParseObject message = new ParseObject(ParseConstants.CLASS_MEASSAGES);
@@ -209,11 +210,33 @@ public class RecipientsActivityFragment extends ListFragment {
     protected ArrayList<String> getRecipientIds() {
 
         ArrayList<String> recipientIds = new ArrayList<String>();
-        for (int i = 0; i < getListView().getCount(); i++){
-            if (getListView().isItemChecked(i)){
+        for (int i = 0; i < mGridView.getCount(); i++){
+            if (mGridView.isItemChecked(i)){
                 recipientIds.add(mFriends.get(i).getObjectId());
             }
         }
         return recipientIds;
     }
+
+    protected AdapterView.OnItemClickListener mOnItemClickListner = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            if (mGridView.getCheckedItemCount() > 0) {
+                mSendMenuItem.setVisible(true);
+            }else {
+                mSendMenuItem.setVisible(false);
+            }
+            ImageView checkImageView = (ImageView) view.findViewById(R.id.userCheckView);
+            if (mGridView.isItemChecked(position)) {
+
+                checkImageView.setVisibility(View.VISIBLE);
+            }
+            else {
+
+                checkImageView.setVisibility(View.INVISIBLE);
+            }
+
+        }
+    };
 }

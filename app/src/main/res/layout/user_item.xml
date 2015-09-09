@@ -17,12 +17,14 @@
 
     <ImageView
         android:id="@+id/userImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
+        android:src="@drawable/place_holder"
         android:contentDescription="@string/user_image_view"
-        android:scaleType="fitXY"/>
+        style="@style/GridImage" />
+
+    <ImageView
+        android:id="@+id/userCheckView"
+        android:contentDescription="@string/user_check_view"
+        android:src="@drawable/checked"
+        android:visibility="invisible"
+        style="@style/GridImage" />
 </RelativeLayout>

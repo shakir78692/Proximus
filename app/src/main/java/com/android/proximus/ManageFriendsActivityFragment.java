@@ -2,13 +2,19 @@ package com.android.proximus;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -19,16 +25,15 @@ import com.parse.SaveCallback;
 
 import java.util.List;
 
-/**
- * A placeholder fragment containing a simple view.
- */
-public class ManageFriendsActivityFragment extends ListFragment {
+
+public class ManageFriendsActivityFragment extends Fragment {
 
     private static final String LOG_TAG = ManageFriendsActivity.class.getSimpleName();
 
     protected List<ParseUser> mUsers;
     protected ParseRelation<ParseUser> mFriendsRelation;
     protected ParseUser mCurrentUser;
+    protected GridView mGridView;
 
     public ManageFriendsActivityFragment() {
     }
@@ -36,14 +41,21 @@ public class ManageFriendsActivityFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_manage_friends, container, false);
+        View rootView = inflater.inflate(R.layout.user_grid, container, false);
+
+        mGridView = (GridView) rootView.findViewById(R.id.friendsGrid);
+        mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
+        TextView textView = (TextView) rootView.findViewById(android.R.id.empty);
+        mGridView.setEmptyView(textView);
+
+        mGridView.setOnItemClickListener(mOnItemClickListner);
+
+        return rootView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         mCurrentUser = ParseUser.getCurrentUser();
         mFriendsRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
@@ -64,8 +76,12 @@ public class ManageFriendsActivityFragment extends ListFragment {
                         i++;
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_checked, userNames);
-                    setListAdapter(adapter);
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(getActivity(), mUsers);
+                        mGridView.setAdapter(adapter);
+                    } else {
+                        ((UserAdapter) mGridView.getAdapter()).refill(mUsers);
+                    }
 
                     addFriendsCheckMarks();
 
@@ -100,7 +116,7 @@ public class ManageFriendsActivityFragment extends ListFragment {
 
                             if (user.getObjectId().equals(friend.getObjectId())){
 
-                                getListView().setItemChecked(i,true);
+                                mGridView.setItemChecked(i, true);
                             }
                         }
 
@@ -116,30 +132,31 @@ public class ManageFriendsActivityFragment extends ListFragment {
         });
     }
 
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
+    protected AdapterView.OnItemClickListener mOnItemClickListner = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        if (getListView().isItemChecked(position)) {
+            ImageView checkImageView = (ImageView) view.findViewById(R.id.userCheckView);
+            if (mGridView.isItemChecked(position)) {
 
-            mFriendsRelation.add(mUsers.get(position));
-
-        }
-        else {
+                mFriendsRelation.add(mUsers.get(position));
+                checkImageView.setVisibility(View.VISIBLE);
+            }
+            else {
 
             mFriendsRelation.remove(mUsers.get(position));
+            checkImageView.setVisibility(View.INVISIBLE);
+            }
 
-        }
-
-        mCurrentUser.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e != null) {
-                    Log.e(LOG_TAG, e.getMessage());
-                } else {
+            mCurrentUser.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if (e != null) {
+                        Log.e(LOG_TAG, e.getMessage());
+                    }
 
                 }
-            }
-        });
-    }
+            });
+        }
+    };
 }
