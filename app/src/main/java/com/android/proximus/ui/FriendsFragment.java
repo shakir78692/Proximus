@@ -1,4 +1,4 @@
-package com.android.proximus;
+package com.android.proximus.ui;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.android.proximus.util.ParseConstants;
+import com.android.proximus.R;
+import com.android.proximus.adapter.UserAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

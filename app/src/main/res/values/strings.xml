@@ -47,7 +47,7 @@
     <string name="general_error">Sorry, there was an error!</string>
     <string name="select_video_warning">Selected video must be less than 10 MB.</string>
     <string name="file_picked_error">There was a problem with selected file.</string>
-    <string name="title_activity_recipients">RecipientsActivity</string>
+    <string name="title_activity_recipients">Recipients</string>
     <string name="recipients_empty_label">Add some friends first!</string>
     <string name="select_video_error">File size too large!</string>
     <string name="action_send">Send</string>
@@ -55,7 +55,7 @@
     <string name="file_selected_error">There was an error with file selected, Please select other file.</string>
     <string name="sent_success">Sent successful!</string>
     <string name="error_sending_try_again">There was an error sending your message. Please try again.</string>
-    <string name="title_activity_image_view">ImageViewActivity</string>
+    <string name="title_activity_image_view">Photo</string>
     <string name="app_name_title">Proximus</string>
     <string name="icon_image">icon image</string>
     <string name="cancel_label">Cancel</string>

@@ -1,10 +1,11 @@
-package com.android.proximus;
+package com.android.proximus.ui;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.android.proximus.R;
 import com.squareup.picasso.Picasso;
 
 public class ImageViewActivity extends AppCompatActivity {
@@ -20,8 +21,6 @@ public class ImageViewActivity extends AppCompatActivity {
 
         Picasso.with(this)
                 .load(imageUri)
-                .placeholder(R.drawable.ic_action_picture)
-                .fit().centerInside()
                 .into(imageView);
     }
 

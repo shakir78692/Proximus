@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.Log;
 
-import com.android.proximus.ParseConstants;
-
 import org.apache.commons.io.IOUtils;
 
 import java.io.ByteArrayOutputStream;

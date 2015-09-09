@@ -1,9 +1,13 @@
-package com.android.proximus;
+package com.android.proximus.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.android.proximus.R;
+import com.android.proximus.ui.FriendsFragment;
+import com.android.proximus.ui.InboxFragment;
 
 import java.util.Locale;
 

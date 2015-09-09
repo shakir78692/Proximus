@@ -1,4 +1,4 @@
-package com.android.proximus;
+package com.android.proximus.adapter;
 
 import android.content.Context;
 import android.text.format.DateUtils;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.proximus.util.ParseConstants;
+import com.android.proximus.R;
 import com.parse.ParseObject;
 
 import java.util.Date;

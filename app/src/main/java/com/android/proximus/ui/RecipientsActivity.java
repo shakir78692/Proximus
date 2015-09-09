@@ -1,7 +1,9 @@
-package com.android.proximus;
+package com.android.proximus.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.android.proximus.R;
 
 public class RecipientsActivity extends AppCompatActivity {
 

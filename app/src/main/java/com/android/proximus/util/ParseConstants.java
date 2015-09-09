@@ -1,4 +1,4 @@
-package com.android.proximus;
+package com.android.proximus.util;
 
 /**
  * Created by Shakir on 28/08/15.

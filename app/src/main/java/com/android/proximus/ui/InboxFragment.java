@@ -1,4 +1,4 @@
-package com.android.proximus;
+package com.android.proximus.ui;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.android.proximus.adapter.MessageAdapter;
+import com.android.proximus.util.ParseConstants;
+import com.android.proximus.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;

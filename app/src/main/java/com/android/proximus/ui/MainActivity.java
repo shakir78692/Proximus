@@ -1,4 +1,4 @@
-package com.android.proximus;
+package com.android.proximus.ui;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,6 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.android.proximus.util.ParseConstants;
+import com.android.proximus.R;
+import com.android.proximus.adapter.SectionsPagerAdapter;
 import com.parse.ParseUser;
 
 import java.io.File;
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                     Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
                     if (mMediaUri == null){
-                        Toast.makeText(MainActivity.this,R.string.media_storage_error_label,Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, R.string.media_storage_error_label, Toast.LENGTH_LONG).show();
                     }else {
                         takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri);
                         startActivityForResult(takePhotoIntent, TAKE_PHOTO_REQUEST);

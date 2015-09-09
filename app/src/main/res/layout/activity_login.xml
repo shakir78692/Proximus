@@ -6,7 +6,7 @@
                 android:layout_height="match_parent"
                 android:background="#2196F3"
                 android:padding="16dp"
-    tools:context="com.android.proximus.LoginActivity">
+    tools:context="com.android.proximus.ui.LoginActivity">
 
     <include layout="@layout/title_layout"/>
 
