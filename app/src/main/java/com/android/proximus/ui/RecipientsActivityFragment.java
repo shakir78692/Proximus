@@ -23,7 +23,9 @@ import com.android.proximus.util.FileHelper;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
@@ -164,6 +166,7 @@ public class RecipientsActivityFragment extends Fragment {
                 if(e == null) {
 
                     Log.i("SENT", "Message sent successfully!");
+                    sendPushNotification();
 
                 }else {
 
@@ -176,6 +179,17 @@ public class RecipientsActivityFragment extends Fragment {
                 }
             }
         });
+    }
+
+    protected void sendPushNotification() {
+
+        ParseQuery<ParseInstallation> query = ParseInstallation.getQuery();
+        query.whereContainedIn(ParseConstants.KEY_USER_ID, getRecipientIds());
+
+        ParsePush push = new ParsePush();
+        push.setQuery(query);
+        push.setMessage("You have a new message from " + mCurrentUser.getUsername() + "!");
+        push.sendInBackground();
     }
 
     protected ParseObject createMessage(){

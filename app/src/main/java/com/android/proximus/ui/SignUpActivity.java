@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.proximus.ProximusApplication;
 import com.android.proximus.R;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -63,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
                     dialog.show();
                 } else {
 
-                    ParseUser user = new ParseUser();
+                    final ParseUser user = new ParseUser();
                     user.setUsername(username);
                     user.setPassword(password);
                     user.setEmail(email);
@@ -72,6 +73,9 @@ public class SignUpActivity extends AppCompatActivity {
                         public void done(ParseException e) {
 
                             if (e == null) {
+
+                                ProximusApplication.updateParseInstallation(ParseUser.getCurrentUser());
+
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.proximus.ProximusApplication;
 import com.android.proximus.R;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -67,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (user != null) {
                                 // Hooray! The user is logged in.
+                                ProximusApplication.updateParseInstallation(user);
+
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

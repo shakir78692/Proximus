@@ -61,5 +61,6 @@
     <string name="cancel_label">Cancel</string>
     <string name="user_image_view">user</string>
     <string name="user_check_view">check</string>
+    <string name="push_message">You have new message from %s!</string>
 
 </resources>

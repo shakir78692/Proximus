@@ -25,7 +25,11 @@
     <ImageView
         android:id="@+id/userCheckView"
         android:contentDescription="@string/user_check_view"
-        android:src="@drawable/checked"
+        android:src="@drawable/ic_check_circle_white_48dp"
         android:visibility="invisible"
-        style="@style/GridImage" />
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@+id/userImageView"
+        android:layout_alignRight="@+id/userImageView"
+        android:layout_margin="8dp"/>
 </RelativeLayout>
